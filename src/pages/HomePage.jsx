@@ -14,14 +14,14 @@ const HomePage = () => {
         }
     }, []);
 
-    function handleCreate(fullname) {
+    const handleCreate = (fullname) => {
         const subjects = [];
         const updatedStudents = [ ...students, { subjects, fullname, id: Math.random() }];
         setStudents(updatedStudents);
         LocalStorageService.saveData('students', updatedStudents)
     }
 
-    function removeStudent(id) {
+    const removeStudent = (id) => {
         const filteredStudents = students.filter( student => student.id !== id);
         setStudents(filteredStudents);
         LocalStorageService.saveData('students', filteredStudents)

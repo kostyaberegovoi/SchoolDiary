@@ -8,8 +8,4 @@ export class LocalStorageService {
         const data = localStorage.getItem(key);
         return JSON.parse(data);
     }
-
-    /*static deleteData(key) {
-        localStorage.removeItem(key);
-    }*/
 }

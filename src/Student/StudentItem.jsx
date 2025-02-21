@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import Context from "../context";
 import { Link } from "react-router-dom";
 
-function StudentItem({ student, index }) {
+const StudentItem = ({ student, index }) => {
     const { removeStudent } = useContext(Context)
 
-    function getAverageMark() {
+    const getAverageMark = () => {
         const totalMarks = student.subjects.reduce((acc, subject) => acc + Number(subject.mark), 0);
         if (!totalMarks) return;
         const averageMark = totalMarks / student.subjects.length;
@@ -19,10 +19,10 @@ function StudentItem({ student, index }) {
     return (
         <li className="student-item">
             <span>
-                <strong id="student-index">{index + 1 + "."}</strong>
-              <Link className="links" to={`students/${student.id}`}>
-                {student.fullname}
-              </Link> 
+                <strong id="student-index">{`${index + 1}.`}</strong>
+                <Link className="links" to={`students/${student.id}`}>
+                    {student.fullname}
+                </Link> 
             </span>
             <p id="average-mark">{averageMark}</p>  
             <button id="delete-student-btn" onClick={() => removeStudent(student.id)}>Delete</button>

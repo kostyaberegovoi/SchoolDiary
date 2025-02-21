@@ -2,22 +2,22 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function AddSubject({ onCreate }) {
+const AddSubject = ({ onCreate }) => {
 
     let [subjectValue, setSubject] = useState('Subject');
     let [markValue, setMark] = useState('Mark');
     let [dateValue, setDate] = useState('');
 
-    function addAllTexts(event) {
+    const addAllTexts = (event) => {
         event.preventDefault()
-        if (subjectValue.trim() || dateValue.trim() || markValue.trim()) {
 
-           const subjectObj = {
+        if (subjectValue.trim() || dateValue.trim() || markValue.trim()) {
+            const subjectObj = {
                 subject: subjectValue,
                 date: dateValue,
                 mark:  markValue,
                 id: Math.random(),
-           };
+            };
 
            onCreate(subjectObj);
         }
@@ -29,14 +29,14 @@ function AddSubject({ onCreate }) {
         setMark('');
     }
 
-    function clearInput(event) {
+    const clearInput = (event) => {
         if (event.target.value === 'Subject')
         setSubject('');
     }
 
     return(
         <form id="add-subject-form" onSubmit={addAllTexts}>
-            <button id="home-btn"><Link className="links" to="http://localhost:3000">Home</Link></button>
+            <button type="button" id="home-btn"><Link className="links" to="http://localhost:3000">Home</Link></button>
             <input value={subjectValue} onChange={event => setSubject(event.target.value)} onClick={clearInput} id="subject-input"></input>
             <input type="date" value={dateValue} onChange={event => setDate(event.target.value)} id="date-input"></input>
             <select value={markValue} onChange={event => setMark(event.target.value)} id="mark-select">

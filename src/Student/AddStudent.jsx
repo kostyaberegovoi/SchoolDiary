@@ -1,22 +1,22 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
 
-function AddStudent(props) {
-  const onCreate = props.onCreate;
-  let [nameValue, setName] = useState('');
-  let [surnameValue, setSurname] = useState('');
+const AddStudent = (props) => {
+    const onCreate = props.onCreate;
+    let [nameValue, setName] = useState('');
+    let [surnameValue, setSurname] = useState('');
 
-function submitHandler(event) {
-  event.preventDefault();
+const submitHandler = (event) => {
+    event.preventDefault();
 
-  if (nameValue.trim() || surnameValue.trim()) {
-    const fullname = nameValue + (" ") + surnameValue;
-    onCreate(fullname);
-  }
+    if (nameValue.trim() || surnameValue.trim()) {
+      const fullname = `${nameValue} ${surnameValue}`;
+      onCreate(fullname);
+    }
   
-  setName('');
+    setName('');
 
-  setSurname('');
+    setSurname('');
 }
     return (
         <form className="name-surname-div"onSubmit={submitHandler}>
@@ -37,4 +37,5 @@ function submitHandler(event) {
 AddStudent.propTypes = {
  onCreate: PropTypes.func.isRequired
 }
+
 export default AddStudent

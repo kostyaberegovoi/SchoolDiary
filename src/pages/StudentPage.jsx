@@ -4,7 +4,7 @@ import SubjectsList from "../Subject/SubjectsList";
 import { LocalStorageService } from "../utils/localStorageService";
 import { useParams } from "react-router-dom";
 
-function StudentPage() {
+const StudentPage = () => {
     const [allSubjects, setSubjects] = useState([]);
 
     const { id } = useParams();
@@ -17,13 +17,13 @@ function StudentPage() {
         setSubjects(subjects);
     }, [id]);
 
-    function addSubject(subject) {
+    const addSubject = (subject) => {
         const updatedSubjects = [ ...allSubjects, subject];
         setSubjects(updatedSubjects);
         addSubjectsToStudent(subject);
     }
 
-    function addSubjectsToStudent(subject) {
+    const addSubjectsToStudent = (subject) => {
         const students = LocalStorageService.getData('students');
         const filteredStudents = students.filter((student => `${student.id}` === id));
         const currentStudent = filteredStudents[0];
