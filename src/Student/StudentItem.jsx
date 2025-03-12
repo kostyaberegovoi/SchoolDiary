@@ -9,6 +9,7 @@ const StudentItem = ({ student, index }) => {
     const getAverageMark = () => {
         const totalMarks = student.subjects.reduce((acc, subject) => acc + Number(subject.mark), 0);
         if (!totalMarks) return;
+        
         const averageMark = totalMarks / student.subjects.length;
         const roundAverageMark = Math.round(averageMark);
         return roundAverageMark;

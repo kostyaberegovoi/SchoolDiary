@@ -9,8 +9,9 @@ const HomePage = () => {
 
     useEffect(() => {
         const items = LocalStorageService.getData('students');
+
         if (items) {
-        setStudents(items);
+          setStudents(items);
         }
     }, []);
 
@@ -31,8 +32,8 @@ const HomePage = () => {
         <Context.Provider value={{ removeStudent }}>  
             <div className="main-div">
                 <h1 id="home-page-title">SCHOOL DIARY</h1>
-                <AddStudent onCreate={handleCreate}></AddStudent>
-                <StudentsList students={students}></StudentsList>
+                <AddStudent onCreate={handleCreate} />
+                <StudentsList students={students} />
             </div>
         </Context.Provider>
     )

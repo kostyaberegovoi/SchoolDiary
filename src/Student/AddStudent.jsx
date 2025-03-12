@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
 
-const AddStudent = (props) => {
-    const onCreate = props.onCreate;
+const AddStudent = ({ onCreate }) => {
     let [nameValue, setName] = useState('');
     let [surnameValue, setSurname] = useState('');
 
@@ -22,12 +21,12 @@ const submitHandler = (event) => {
         <form className="name-surname-div"onSubmit={submitHandler}>
           <div className="name-div">
             <h2 id="name-text">Name</h2>
-            <input value={nameValue} onChange={event => setName(event.target.value)} id="student-name-input"></input>
+            <input value={nameValue} onChange={event => setName(event.target.value)} id="student-name-input" />
           </div>
 
           <div className="surname-div">
             <h3 id="surname-text">Surname</h3>
-            <input value={surnameValue} onChange={event => setSurname(event.target.value)} id="student-surname-input"></input>
+            <input value={surnameValue} onChange={event => setSurname(event.target.value)} id="student-surname-input" />
           </div>
           <button type="submit" id="add-student-btn">Add student</button>
         </form>

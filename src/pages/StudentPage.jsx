@@ -28,7 +28,7 @@ const StudentPage = () => {
         const filteredStudents = students.filter((student => `${student.id}` === id));
         const currentStudent = filteredStudents[0];
         currentStudent.subjects.push(subject);
-        let arrayWithoutCurrentStudent = students.filter((student => `${student.id}` !== id));
+        const arrayWithoutCurrentStudent = students.filter((student => `${student.id}` !== id));
         arrayWithoutCurrentStudent.push(currentStudent);
 
         LocalStorageService.saveData('students', students); 
@@ -36,8 +36,8 @@ const StudentPage = () => {
 
     return (
         <div id="subjects-main-div">
-            <AddSubject onCreate={addSubject}></AddSubject>
-            <SubjectsList allSubjects={allSubjects}></SubjectsList>
+            <AddSubject onCreate={addSubject} />
+            <SubjectsList allSubjects={allSubjects} />
         </div>
     )
 }

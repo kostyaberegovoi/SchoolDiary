@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const AddSubject = ({ onCreate }) => {
-
     let [subjectValue, setSubject] = useState('Subject');
     let [markValue, setMark] = useState('Mark');
     let [dateValue, setDate] = useState('');
@@ -37,8 +36,8 @@ const AddSubject = ({ onCreate }) => {
     return(
         <form id="add-subject-form" onSubmit={addAllTexts}>
             <button type="button" id="home-btn"><Link className="links" to="http://localhost:3000">Home</Link></button>
-            <input value={subjectValue} onChange={event => setSubject(event.target.value)} onClick={clearInput} id="subject-input"></input>
-            <input type="date" value={dateValue} onChange={event => setDate(event.target.value)} id="date-input"></input>
+            <input value={subjectValue} onChange={event => setSubject(event.target.value)} onClick={clearInput} id="subject-input" />
+            <input type="date" value={dateValue} onChange={event => setDate(event.target.value)} id="date-input" />
             <select value={markValue} onChange={event => setMark(event.target.value)} id="mark-select">
                 <option defaultValue disabled hidden>Mark</option>
                 <option>5</option>
