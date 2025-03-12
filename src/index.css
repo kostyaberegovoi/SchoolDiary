@@ -1,0 +1,217 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #09065a;
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  width: 70%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.main-div {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80%;
+  background-color: #e27e41;
+  border-radius: 5%;
+  margin-top: 50px;
+}
+
+#home-page-title {
+  margin-left: 40%;
+}
+
+.name-surname-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.name-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 20px;
+  width: 600px;
+}
+
+.surname-div {
+  display: flex;
+  flex-direction: row;
+  width: 650px;
+}
+
+#student-name-input {
+  height: 47px;
+  margin-top: 25px;
+  width: 60%;
+  font-size: 26px;
+  border-radius: 2%;
+}
+
+#student-surname-input {
+  height: 47px;
+  margin: 30px 0 0 30px;
+  font-size: 26px;
+  width: 60%;
+  border-radius: 2%;
+}
+
+#surname-text {
+  font-size: 32px;
+  width: 23%;
+  padding-right: 5%;
+}
+
+#name-text {
+  font-size: 32px;
+  width: 22%;
+  padding-right: 5%;
+}
+
+#add-student-btn {
+  height: 53px;
+  width: 15%;
+  margin: 5px 41px 0 0;
+  background-color: #5db4dd;
+  font-size: 130%;
+}
+
+#add-student-btn:hover {
+  background-color: #e41e5a;
+}
+
+.student-item {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26px;
+  background-color: #39cb71;
+  border: solid #09065a;
+  margin-right: 40px;
+}
+
+#delete-student-btn {
+  align-items: center;
+  width: 80px;
+  height: 80%;
+  font-size: 80%;
+  margin: 0 5% 0 2%;
+  background-color: #e09b2c;
+}
+
+#delete-student-btn:hover {
+  background-color: #eb0000;
+}
+
+#average-mark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid #000;
+  width: 25px;
+  height: 32px;
+  margin-left: auto;
+}
+
+#student-index {
+  margin-left: 40px;
+  padding-right: 10px;
+}
+
+.links {
+  text-decoration: none;
+  color: #000;
+  font-size: 26px;
+}
+
+.links:hover {
+  color: #92e311;
+}
+
+#add-subject-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#subject-input {
+  width: 20%;
+  height: 40px;
+  font-size: 22px;
+  padding-left: 10px;
+  border: solid #0d5f0e;
+}
+
+#date-input {
+  width: 20%;
+  height: 42px;
+  font-size: 22px;
+  padding: 0 10px 0 10px;
+  border: solid #0d5f0e;
+}
+
+#mark-select {
+  width: 20%;
+  height: 46px;
+  font-size: 22px;
+  padding-left: 10px;
+  border: solid #0d5f0e;
+}
+
+#add-subject-btn {
+  width: 15%;
+  background-color: #228725;
+  font-size: 22px;
+}
+
+#add-subject-btn:hover {
+  background-color: #275ccd;
+}
+
+#home-btn {
+  width: 10%;
+  background-color: #228725;
+}
+
+#subjects-main-div {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80%;
+  border-radius: 5%;
+}
+
+#subject-item {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26px;
+  background-color: #286b9f;
+  border: solid #09065a;
+  padding: 10px 15px;
+  margin-right: 50px;
+}
+
+#subject_date {
+
+}
+
+#subject_mark {
+
+}
