@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import AddStudent from "../Student/AddStudent"
 import StudentsList from "../Student/StudentsList"
 import { LocalStorageService } from "../utils/localStorageService"
@@ -7,32 +7,51 @@ import Context from "../context"
 const HomePage = () => {
     const [students, setStudents] = useState([]);
 
-    useEffect(() => {
-        const items = LocalStorageService.getData('students');
+    const pageInit = () => {
+        fetch('http://localhost:4000/api/students')
+        .then((response) => response.json())
+        .then((studentsResponce) => {
+            setStudents(studentsResponce);
+        })
+    };
 
-        if (items) {
-          setStudents(items);
-        }
+    useEffect(() => {
+        pageInit();
     }, []);
 
-    const handleCreate = (fullname) => {
+    const createStudent = (fullname) => {
         const subjects = [];
-        const updatedStudents = [ ...students, { subjects, fullname, id: Math.random() }];
-        setStudents(updatedStudents);
-        LocalStorageService.saveData('students', updatedStudents)
-    }
+        const newStudent = { subjects, fullname };
+
+        fetch('http://localhost:4000/api/students', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newStudent),
+        })
+        .then((response) => response.json())
+        .then((studentResponce) => {
+            console.log(1, studentResponce);
+            const updatedStudents = [...students, studentResponce];
+            setStudents(updatedStudents);
+            LocalStorageService.saveData('students', updatedStudents);
+        })
+    };
 
     const removeStudent = (id) => {
-        const filteredStudents = students.filter( student => student.id !== id);
-        setStudents(filteredStudents);
-        LocalStorageService.saveData('students', filteredStudents)
-    }
+        fetch(`http://localhost:4000/api/students/${id}`, {
+            method: 'DELETE',
+        })
+        setStudents(students => students.filter(student => student.id !== id));
+        LocalStorageService.saveData('students', students.filter(student => student.id !== id));
+    };
 
     return(
         <Context.Provider value={{ removeStudent }}>  
             <div className="main-div">
                 <h1 id="home-page-title">SCHOOL DIARY</h1>
-                <AddStudent onCreate={handleCreate} />
+                <AddStudent onCreate={createStudent} />
                 <StudentsList students={students} />
             </div>
         </Context.Provider>

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const AddSubject = ({ onCreate }) => {
@@ -7,18 +8,21 @@ const AddSubject = ({ onCreate }) => {
     let [markValue, setMark] = useState('Mark');
     let [dateValue, setDate] = useState('');
 
+    let params = useParams()
+    let student_id = params.id
+
     const addAllTexts = (event) => {
         event.preventDefault()
 
         if (subjectValue.trim() || dateValue.trim() || markValue.trim()) {
             const subjectObj = {
-                subject: subjectValue,
+                name: subjectValue,
                 date: dateValue,
-                mark:  markValue,
-                id: Math.random(),
+                mark: markValue,
+                student_id: student_id
             };
 
-           onCreate(subjectObj);
+            onCreate(subjectObj); 
         }
 
         setSubject('Subject');

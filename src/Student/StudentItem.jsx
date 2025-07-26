@@ -7,7 +7,7 @@ const StudentItem = ({ student, index }) => {
     const { removeStudent } = useContext(Context)
 
     const getAverageMark = () => {
-        const totalMarks = student.subjects.reduce((acc, subject) => acc + Number(subject.mark), 0);
+        const totalMarks = student.subjects?.reduce((acc, subject) => acc + Number(subject.mark), 0);
         if (!totalMarks) return;
         
         const averageMark = totalMarks / student.subjects.length;

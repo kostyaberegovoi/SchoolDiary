@@ -4,7 +4,7 @@ import SubjectItem from "./SubjectItem";
 
 const SubjectsList = ({ allSubjects }) => (
     <ul>
-        {allSubjects.map((subject) => {
+        {allSubjects?.map((subject) => {
             return <SubjectItem subject={subject} key={subject.id} />
         })}
     </ul>
